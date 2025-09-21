@@ -11,6 +11,12 @@ services:
       - mysql_data:/var/lib/mysql
     networks:
       - app-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   app:
     build:
@@ -21,12 +27,15 @@ services:
       DB_HOST: mysql
       DB_USER: root
       DB_PASSWORD: root
+      SPRING_PROFILES_ACTIVE: docker
     ports:
       - "9000:9000"
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     networks:
       - app-network
+    restart: unless-stopped
 
 volumes:
   mysql_data:
