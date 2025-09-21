@@ -32,6 +32,9 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public Optional<Property> getPropertyById(Long id) {
+        if (id == null || id <= 0) {
+            return Optional.empty();
+        }
         return propertyRepository.findById(id);
     }
 
@@ -46,7 +49,7 @@ public class PropertyServiceImpl implements PropertyService {
             existing.setDescription(property.getDescription());
             return propertyRepository.save(existing);
         }
-        return null;
+        throw new RuntimeException("Property not found with id: " + id);
     }
 
     @Override

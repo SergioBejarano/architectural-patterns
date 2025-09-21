@@ -62,6 +62,5 @@ public class PropertyController {
         } catch (RuntimeException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
     }
 }
