@@ -286,6 +286,25 @@ A Spring Boot web application for property management with CRUD operations throu
 | `PUT`    | `/api/properties/{id}` | Update property    |
 | `DELETE` | `/api/properties/{id}` | Delete property    |
 
+
+# Class Diagrams
+
+## **Controller:**
+
+<img width="2676" height="795" alt="image" src="https://github.com/user-attachments/assets/7e3f676c-4a7d-499b-9100-9f7a1386fab1" />
+
+## **Model:**
+<img width="1746" height="1306" alt="image" src="https://github.com/user-attachments/assets/f10a136b-ad07-4f24-b03b-7b8211fa9496" />
+
+
+## **Repository:**
+<img width="1315" height="942" alt="image" src="https://github.com/user-attachments/assets/8ba45d4d-e465-49e4-adb7-0f99f03792a1" />
+
+## **Service:**
+<img width="1403" height="1282" alt="image" src="https://github.com/user-attachments/assets/4bbf7867-4ad2-4236-b962-e7ad20dc1a3a" />
+
+
+
 ## 🔧 Troubleshooting
 
 ### Local Development Issues
