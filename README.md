@@ -2,6 +2,17 @@
 
 A Spring Boot web application for property management with CRUD operations through a modern web interface and REST API. This application supports both local development with Docker Compose and AWS cloud deployment with separate EC2 instances.
 
+## 🎥 Video
+
+Click here:
+
+<p align="center">
+  <a href="https://youtu.be/Yne2vSafjv0">
+    <img src="https://img.youtube.com/vi/Yne2vSafjv0/maxresdefault.jpg" 
+         alt="Property Manager: Functionality" width="700">
+  </a>
+</p>
+
 ## Tech Stack
 
 - **Java 17**
@@ -45,18 +56,14 @@ A Spring Boot web application for property management with CRUD operations throu
 
 <img width="2352" height="350" alt="image" src="https://github.com/user-attachments/assets/08a26b2e-b548-4c0b-a597-c50660d7a0c8" />
 
-
 4. **Access the application:**
 
    - Frontend: http://localhost:9000
-  
+
 <img width="2877" height="1720" alt="image" src="https://github.com/user-attachments/assets/5e013845-b3d5-449e-94e7-1ffaa13daa02" />
 
-
-   - API: http://localhost:9000/api/properties
-<img width="2879" height="1704" alt="image" src="https://github.com/user-attachments/assets/2d131dee-5344-4a59-8a6a-793144c80f5b" />
-
-
+- API: http://localhost:9000/api/properties
+  <img width="2879" height="1704" alt="image" src="https://github.com/user-attachments/assets/2d131dee-5344-4a59-8a6a-793144c80f5b" />
 
 5. **Stop the containers:**
    ```bash
@@ -68,7 +75,6 @@ A Spring Boot web application for property management with CRUD operations throu
 ### Architecture Overview
 
 ![Sin título (6)](https://github.com/user-attachments/assets/df673d5a-2ca2-4fca-8d92-bd5f728a0d54)
-
 
 ### Prerequisites for AWS Deployment
 
@@ -99,7 +105,6 @@ A Spring Boot web application for property management with CRUD operations throu
 
 <img width="2879" height="1619" alt="image" src="https://github.com/user-attachments/assets/da4a6ccc-d5c4-48e7-9ed2-166fb38a3cdd" />
 
-
 2. **Create database image from local container:**
 
    ```bash
@@ -119,8 +124,6 @@ A Spring Boot web application for property management with CRUD operations throu
 
 <img width="2879" height="1622" alt="image" src="https://github.com/user-attachments/assets/b78eb368-c9eb-47c0-a50b-91cf013a58cd" />
 
-
-
 ### Step 2: Create EC2 Database Instance
 
 1. **Launch EC2 instance:**
@@ -129,7 +132,6 @@ A Spring Boot web application for property management with CRUD operations throu
    - Instance Type: t2.micro
    - Name: `properties-bd`
    - Security Group: Allow SSH (22) and MySQL (3306)
-
 
 2. **Connect and setup Docker:**
 
@@ -179,7 +181,6 @@ A Spring Boot web application for property management with CRUD operations throu
 
 <img width="2876" height="1550" alt="image" src="https://github.com/user-attachments/assets/dd1c3405-c2d3-494f-a803-e86ecec66e56" />
 
-
 2. **Connect and setup Docker:**
 
    ```bash
@@ -219,8 +220,8 @@ A Spring Boot web application for property management with CRUD operations throu
    docker ps
    docker logs properties-app
    ```
-<img width="1153" height="348" alt="image" src="https://github.com/user-attachments/assets/16a21a40-76f2-4496-aa58-e6ddda1542ef" />
 
+   <img width="1153" height="348" alt="image" src="https://github.com/user-attachments/assets/16a21a40-76f2-4496-aa58-e6ddda1542ef" />
 
 ### Step 4: Configure Security Groups
 
@@ -228,16 +229,13 @@ A Spring Boot web application for property management with CRUD operations throu
 
 - Inbound: SSH (22) from your IP
 - Inbound: MySQL (3306) from Backend Security Group
-<img width="2380" height="452" alt="image" src="https://github.com/user-attachments/assets/c2b3c410-d6f3-4e25-b86b-9b3b3d96e352" />
-
+  <img width="2380" height="452" alt="image" src="https://github.com/user-attachments/assets/c2b3c410-d6f3-4e25-b86b-9b3b3d96e352" />
 
 **Backend EC2 Security Group:**
 
 - Inbound: SSH (22) from your IP
 - Inbound: Custom TCP (9000) from 0.0.0.0/0
-<img width="2298" height="776" alt="image" src="https://github.com/user-attachments/assets/1fd2a41e-35fe-47b6-9dbe-e7ed5653d056" />
-
-
+  <img width="2298" height="776" alt="image" src="https://github.com/user-attachments/assets/1fd2a41e-35fe-47b6-9dbe-e7ed5653d056" />
 
 ### Step 5: Access Deployed Application
 
@@ -254,7 +252,6 @@ A Spring Boot web application for property management with CRUD operations throu
 | `PUT`    | `/api/properties/{id}` | Update property    |
 | `DELETE` | `/api/properties/{id}` | Delete property    |
 
-
 # Class Diagrams
 
 ## **Controller:**
@@ -262,16 +259,16 @@ A Spring Boot web application for property management with CRUD operations throu
 <img width="2676" height="795" alt="image" src="https://github.com/user-attachments/assets/7e3f676c-4a7d-499b-9100-9f7a1386fab1" />
 
 ## **Model:**
+
 <img width="1746" height="1306" alt="image" src="https://github.com/user-attachments/assets/f10a136b-ad07-4f24-b03b-7b8211fa9496" />
 
-
 ## **Repository:**
+
 <img width="1315" height="942" alt="image" src="https://github.com/user-attachments/assets/8ba45d4d-e465-49e4-adb7-0f99f03792a1" />
 
 ## **Service:**
+
 <img width="1403" height="1282" alt="image" src="https://github.com/user-attachments/assets/4bbf7867-4ad2-4236-b962-e7ad20dc1a3a" />
-
-
 
 ## 🔧 Troubleshooting
 
