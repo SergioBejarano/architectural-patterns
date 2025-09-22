@@ -43,10 +43,20 @@ A Spring Boot web application for property management with CRUD operations throu
    docker-compose up --build
    ```
 
+<img width="2352" height="350" alt="image" src="https://github.com/user-attachments/assets/08a26b2e-b548-4c0b-a597-c50660d7a0c8" />
+
+
 4. **Access the application:**
 
    - Frontend: http://localhost:9000
+  
+<img width="2877" height="1720" alt="image" src="https://github.com/user-attachments/assets/5e013845-b3d5-449e-94e7-1ffaa13daa02" />
+
+
    - API: http://localhost:9000/api/properties
+<img width="2879" height="1704" alt="image" src="https://github.com/user-attachments/assets/2d131dee-5344-4a59-8a6a-793144c80f5b" />
+
+
 
 5. **Stop the containers:**
    ```bash
@@ -119,6 +129,9 @@ A Spring Boot web application for property management with CRUD operations throu
    docker push sergiobejarano/properties-app:v1.1
    ```
 
+<img width="2879" height="1619" alt="image" src="https://github.com/user-attachments/assets/da4a6ccc-d5c4-48e7-9ed2-166fb38a3cdd" />
+
+
 2. **Create database image from local container:**
 
    ```bash
@@ -136,14 +149,19 @@ A Spring Boot web application for property management with CRUD operations throu
    docker push sergiobejarano/properties-bd:production
    ```
 
+<img width="2879" height="1622" alt="image" src="https://github.com/user-attachments/assets/b78eb368-c9eb-47c0-a50b-91cf013a58cd" />
+
+
+
 ### Step 2: Create EC2 Database Instance
 
 1. **Launch EC2 instance:**
 
    - AMI: Amazon Linux 2023
    - Instance Type: t2.micro
-   - Name: `propertymanager-database`
+   - Name: `properties-bd`
    - Security Group: Allow SSH (22) and MySQL (3306)
+
 
 2. **Connect and setup Docker:**
 
@@ -188,8 +206,11 @@ A Spring Boot web application for property management with CRUD operations throu
 
    - AMI: Amazon Linux 2023
    - Instance Type: t2.micro
-   - Name: `propertymanager-backend`
+   - Name: `properties-app`
    - Security Group: Allow SSH (22) and HTTP (9000)
+
+<img width="2876" height="1550" alt="image" src="https://github.com/user-attachments/assets/dd1c3405-c2d3-494f-a803-e86ecec66e56" />
+
 
 2. **Connect and setup Docker:**
 
@@ -224,12 +245,14 @@ A Spring Boot web application for property management with CRUD operations throu
      -e DB_USER=root \
      -e DB_PASSWORD=root \
      -e PORT=9000 \
-     sergiobejarano/properties-app:v1.1
+     sergiobejarano/properties-app:latest
 
    # Verify deployment
    docker ps
    docker logs properties-app
    ```
+<img width="1153" height="348" alt="image" src="https://github.com/user-attachments/assets/16a21a40-76f2-4496-aa58-e6ddda1542ef" />
+
 
 ### Step 4: Configure Security Groups
 
@@ -237,12 +260,16 @@ A Spring Boot web application for property management with CRUD operations throu
 
 - Inbound: SSH (22) from your IP
 - Inbound: MySQL (3306) from Backend Security Group
+<img width="2380" height="452" alt="image" src="https://github.com/user-attachments/assets/c2b3c410-d6f3-4e25-b86b-9b3b3d96e352" />
+
 
 **Backend EC2 Security Group:**
 
 - Inbound: SSH (22) from your IP
 - Inbound: Custom TCP (9000) from 0.0.0.0/0
-- Outbound: MySQL (3306) to Database Security Group
+<img width="2298" height="776" alt="image" src="https://github.com/user-attachments/assets/1fd2a41e-35fe-47b6-9dbe-e7ed5653d056" />
+
+
 
 ### Step 5: Access Deployed Application
 
