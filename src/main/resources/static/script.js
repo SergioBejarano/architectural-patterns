@@ -1,4 +1,5 @@
-const API_BASE = 'http://localhost:9000/api/properties';
+// Configuración dinámica de API URL - funciona tanto local como en AWS
+const API_BASE = `${window.location.protocol}//${window.location.host}/api/properties`;
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
